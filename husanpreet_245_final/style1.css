@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#shop-header {
+    background: #ff6f61;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.section-p1 {
+    padding: 20px;
+}
+
+.pro-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.pro {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.pro img {
+    width: 100%;
+    height: auto;
+}
+
+.des {
+    padding: 10px 0;
+}
+
+.des span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.des h4 {
+    margin: 0;
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}

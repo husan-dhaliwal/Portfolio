@@ -1,0 +1,84 @@
+<?php
+include 'header.php';
+
+$products = [
+    ['name' => 'Personalized Mug', 'price' => 15, 'image' => 'img/img/products/mug.jpg'],
+    ['name' => 'Autographed T-shirt', 'price' => 25, 'image' => 'img/img/products/tshirt.jpg'],
+    ['name' => 'Signed Notebook', 'price' => 10, 'image' => 'img/img/products/notebook.jpg'],
+];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['add_to_cart'])) {
+        $productIndex = $_POST['product_index'];
+        addToCart($products[$productIndex]);
+    } elseif (isset($_POST['remove_from_cart'])) {
+        $productIndex = $_POST['product_index'];
+        removeFromCart($productIndex);
+    }
+}
+
+$cart = getCart();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husan's portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- Header content -->
+    </header>
+
+    <section id="shop-header">
+        <h2>#We-Can</h2>
+        <p>Save more with coupons & up to 70% off!</p>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <div class="pro-container">
+            <?php foreach ($products as $index => $product): ?>
+                <div class="pro">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <div class="des">
+                        <span><?php echo $product['name']; ?></span>
+                        <h4>$<?php echo $product['price']; ?></h4>
+                        <form method="post" action="shop.php">
+                            <input type="hidden" name="product_index" value="<?php echo $index; ?>">
+                            <button type="submit" name="add_to_cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <h2>Shopping Cart</h2>
+        <div class="cart-container">
+            <?php foreach ($cart as $index => $product): ?>
+                <div class="cart-item">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <div class="des">
+                        <span><?php echo $product['name']; ?></span>
+                        <h4>$<?php echo $product['price']; ?></h4>
+                        <form method="post" action="shop.php">
+                            <input type="hidden" name="product_index" value="<?php echo $index; ?>">
+                            <button type="submit" name="remove_from_cart">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <!-- Footer content -->
+    </footer>
+</body>
+
+</html>
